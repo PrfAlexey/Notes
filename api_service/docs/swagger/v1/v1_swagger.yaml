@@ -1,0 +1,63 @@
+basePath: /v1
+definitions:
+  entity.SignUpRequest:
+    properties:
+      email:
+        type: string
+      name:
+        type: string
+      password:
+        type: string
+    type: object
+info:
+  contact: {}
+  description: Сервис заметок.
+  title: API сервиса заметок
+  version: "1.0"
+paths:
+  /info:
+    get:
+      description: Получает информацию о приложении
+      operationId: info
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+        "500":
+          description: Internal Server Error
+      summary: Получить информацию о приложении
+      tags:
+      - info
+  /sign-up:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Запрос на регистрацию пользователя
+        in: body
+        name: signUpRequest
+        required: true
+        schema:
+          $ref: '#/definitions/entity.SignUpRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+        "400":
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: Not Found
+        "409":
+          description: Conflict
+        "500":
+          description: Internal Server Error
+      summary: Регистрация пользователя
+      tags:
+      - auth
+swagger: "2.0"

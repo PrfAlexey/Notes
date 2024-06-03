@@ -1,0 +1,22 @@
+basePath: /v1
+info:
+  contact: {}
+  description: Сервис юзеров.
+  title: users service API
+  version: "1.0"
+paths:
+  /info:
+    get:
+      description: Получает информацию о приложении
+      operationId: info
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+        "500":
+          description: Internal Server Error
+      summary: Получить информацию о приложении
+      tags:
+      - info
+swagger: "2.0"
